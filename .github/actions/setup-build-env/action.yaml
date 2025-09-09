@@ -40,12 +40,6 @@ runs:
         echo "project-url=$PROJECT_URL" >> $GITHUB_OUTPUT
         echo "vcs-ref=$VCS_REF" >> $GITHUB_OUTPUT
 
-    - name: Update workspace version
-      id: update-version
-      shell: bash
-      run: |
-        sed -i 's/version = "0.0.0-dev"/version = "${{ inputs.version }}"/' Cargo.toml
-
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
